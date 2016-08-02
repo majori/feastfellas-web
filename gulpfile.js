@@ -38,4 +38,5 @@ gulp.task('webserver', () => {
     }));
 })
 
-gulp.task('default', ['webserver','watch']);
+gulp.task('dev', ['webserver', 'watch']);
+gulp.task('build', ['build_views', 'build_styles']);

@@ -2,8 +2,9 @@
   "name": "feastfellas",
   "version": "0.0.1",
   "description": "Feast Fellas homepage",
-  "main": "./",
   "scripts": {
+    "build": "gulp build",
+    "build:dev": "gulp dev",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -16,12 +17,6 @@
     "gulp-livereload": "^3.8.1",
     "gulp-pug": "^3.0.3",
     "gulp-sass": "^2.3.2",
-    "gulp-webserver": "^0.9.1",
-    "html-webpack-plugin": "^2.22.0",
-    "http-server": "^0.9.0",
-    "pug": "^2.0.0-beta4",
-    "pug-loader": "^2.1.0",
-    "webpack": "^1.13.1",
-    "webpack-livereload-plugin": "^0.8.1"
+    "gulp-webserver": "^0.9.1"
   }
 }
