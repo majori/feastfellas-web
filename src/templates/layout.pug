@@ -1,8 +1,10 @@
+doctype
 html
   include ./includes/head.pug
   body
-    div(classes="container site__wrapper")
+    div.container(class="site__wrapper")
       block content
       block footer
+      include ./includes/scripts.pug
 
 

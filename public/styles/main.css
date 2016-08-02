@@ -1,18 +1,35 @@
+html {
+  height: 100%;
+  width: 100%;
+}
+
 body {
   background-image: url("/assets/img/background.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: center; }
+  background-position-x: center;
+  min-height: 100%;
+  min-width: 100%; }
 
-.site__wrapper {
-  height: 100%; }
+.menu {
+  background-color: blue; }
+  .menu img {
+    width: 20%; }
+
+.content {
+  background-color: red; }
 
 .info__holder {
   padding-top: 90px;
   width: 80%;
   height: 100%; }
+  .info__holder img {
+    display: block;
+    margin: auto;
+    width: 100%;
+    max-width: 600px; }
 
-.message-div {
+.message__div {
   width: 82.5%;
   max-width: 495px;
   margin: auto;
@@ -22,15 +39,9 @@ body {
   border-radius: 0 0 4px 4px;
   border-width: 0.4vw;
   border-color: white; }
-  .message-div p {
+  .message__div p {
     padding-top: 30px;
     padding-bottom: 30px;
     font-family: 'Reem Kufi', sans-serif;
     font-size: 2em;
     color: white; }
-
-.info__holder img {
-  display: block;
-  margin: auto;
-  width: 100%;
-  max-width: 600px; }

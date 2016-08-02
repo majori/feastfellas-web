@@ -5,12 +5,12 @@ const webserver = require('gulp-webserver');
 const pug       = require('gulp-pug');
 const sass      = require('gulp-sass');
 
-const TEMPLATE_DIR = path.resolve(__dirname, 'src/templates/views');
+const TEMPLATE_DIR = path.resolve(__dirname, 'src/templates');
 const STYLE_DIR = path.resolve(__dirname, 'src/styles');
 const PUBLIC_DIR = path.resolve(__dirname, 'public');
 
 gulp.task('build_views', () => {
-  return gulp.src(TEMPLATE_DIR + '/*.pug')
+  return gulp.src(TEMPLATE_DIR + '/views/*.pug')
     .pipe(pug({
       pretty: true
     }))
