@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "description": "Feast Fellas homepage",
   "scripts": {
-    "build": "gulp build",
+    "build": "gulp build --production",
     "build:dev": "gulp dev",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -19,6 +19,7 @@
     "gulp-livereload": "^3.8.1",
     "gulp-pug": "^3.0.3",
     "gulp-sass": "^2.3.2",
+    "gulp-util": "^3.0.7",
     "gulp-webserver": "^0.9.1"
   }
 }

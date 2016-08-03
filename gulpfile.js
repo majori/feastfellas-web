@@ -1,6 +1,7 @@
 const path = require('path');
 
 const gulp          = require('gulp');
+const util          = require('gulp-util');
 const webserver     = require('gulp-webserver');
 const pug           = require('gulp-pug');
 const sass          = require('gulp-sass');
@@ -14,13 +15,16 @@ const STYLE_DIR = path.resolve(__dirname, 'src/styles');
 const PUBLIC_DIR = path.resolve(__dirname, 'public');
 const BOOTSTRAP_DIR = path.resolve(__dirname, 'node_modules/bootstrap-sass/assets/stylesheets');
 
+const production = !!util.env.production; // Turn undefined into a proper false
+
 const CONFIG = {
   sass: {
-    includePaths: [ STYLE_DIR, BOOTSTRAP_DIR ]
+    includePaths: [ STYLE_DIR, BOOTSTRAP_DIR ],
+    outputStyle: (production) ? 'compressed' : 'nested'
   },
 
   pug: {
-    pretty: true
+    pretty: !production
   },
 
   webserver: {
@@ -33,24 +37,24 @@ const CONFIG = {
 }
 
 gulp.task('build_views', () => {
-  return gulp.src(TEMPLATE_DIR + '/views/*.pug')
+  return gulp.src(`${TEMPLATE_DIR}/views/*.pug`)
     .pipe(pug(CONFIG.pug))
-    .pipe(gulp.dest(PUBLIC_DIR + '/views'));
+    .pipe(gulp.dest(`${PUBLIC_DIR}/views`));
 });
 
 gulp.task('build_styles', () => {
-  return gulp.src(STYLE_DIR + '/**/*.scss')
+  return gulp.src(`${STYLE_DIR}/**/*.scss`)
     .pipe(sass(CONFIG.sass).on('error', sass.logError))
     .pipe(autoprefixer({
       browsers: ['last 2 versions'],
       cascade: false
     }))
-    .pipe(gulp.dest(PUBLIC_DIR + '/styles'));
+    .pipe(gulp.dest(`${PUBLIC_DIR}/styles`));
 });
 
 gulp.task('watch', () => {
-  gulp.watch(TEMPLATE_DIR + '/**/*.pug', ['build_views']);
-  gulp.watch(STYLE_DIR + '/**/*.scss', ['build_styles']);
+  gulp.watch(`${TEMPLATE_DIR}/**/*.pug`, ['build_views']);
+  gulp.watch(`${STYLE_DIR}/**/*.scss`, ['build_styles']);
 });
 
 gulp.task('webserver', () => {
@@ -60,3 +64,5 @@ gulp.task('webserver', () => {
 
 gulp.task('build', ['build_views', 'build_styles']);
 gulp.task('dev', ['webserver', 'build', 'watch']);
+
+gulp.task('default', ['build']);
