@@ -1,10 +1,10 @@
-doctype
-html
-  include ./includes/head.pug
-  body
-    div.container(class="site__wrapper")
-      block content
-      block footer
-      include ./includes/scripts.pug
+extends ./root.pug
 
-
+block site
+    div.row
+      div.col-md-4.col-sm-3.col-xs-12(class="menu")
+        include ./includes/menu.pug
+      div.col-md-8.col-sm-9.col-xs-12(class="content")
+        block content
+    div.row
+      include ./includes/footer.pug
