@@ -2,3 +2,4 @@
 *.sublime-project
 *.psd
 node_modules/
+sftp-config.json

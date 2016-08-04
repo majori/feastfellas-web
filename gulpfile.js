@@ -13,13 +13,16 @@ const SERVER_PORT = 8080;
 const TEMPLATE_DIR = path.resolve(__dirname, 'src/templates');
 const STYLE_DIR = path.resolve(__dirname, 'src/styles');
 const PUBLIC_DIR = path.resolve(__dirname, 'public');
+
+// External style libraries
 const BOOTSTRAP_DIR = path.resolve(__dirname, 'node_modules/bootstrap-sass/assets/stylesheets');
+const VIEWPORTS_DIR = path.resolve(__dirname, 'node_modules/viewports');
 
 const production = !!util.env.production; // Turn undefined into a proper false
 
 const CONFIG = {
   sass: {
-    includePaths: [ STYLE_DIR, BOOTSTRAP_DIR ],
+    includePaths: [ STYLE_DIR, BOOTSTRAP_DIR, VIEWPORTS_DIR],
     outputStyle: (production) ? 'compressed' : 'nested'
   },
 
