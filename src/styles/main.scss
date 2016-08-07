@@ -1,24 +1,22 @@
-html {
-  height: 100%;
-  width: 100%;
-}
+// External libraries
+$VIEWPORTS_CONFIG:
+    up-to  480px it-is "tiny",
+    up-to  700px it-is "small",
+    up-to 1180px it-is "medium",
+    beyond-that  it-is "large";
 
-body {
-	background-image: url("/assets/img/background.jpg");
-	background-repeat: no-repeat;
-	background-size: cover;
-	background-position-x: center;
+@import 'viewports';
+@import 'purecss';
 
-  min-height: 100%;
-  min-width: 100%;
-}
+// Templates
+@import '../templates/root';
+@import '../templates/layout';
 
-.site__wrapper {
+// Views
+@import '../views/inProgress';
 
-}
-
-@import 'index';
-@import 'inProgress';
-
+// Includes
+@import '../includes/navigation';
+@import '../includes/footer';
 
 

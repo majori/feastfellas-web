@@ -1,0 +1,32 @@
+.container {
+  display: flex;
+  flex-direction: row;
+
+  @include viewports(up-to small) {
+    flex-direction: column;
+  }
+}
+
+.navigation__wrapper {
+  padding-top: 40px;
+
+  @include viewports(up-to small) {
+    padding-top: 10px;
+  }
+
+  width: 30%;
+  // background-color: red;
+
+  @include viewports(up-to small) {
+    width: 100%;
+  }
+}
+
+.content__wrapper {
+  flex-grow: 1;
+  height: 800px;
+
+  padding: 20px;
+
+  // background-color: blue;
+}

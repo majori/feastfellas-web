@@ -1,0 +1,51 @@
+#navigation__logo {
+  display: block;
+  margin: auto;
+  content: url("/assets/img/menulogo.png");
+  width: 350px;
+
+  @include viewports(up-to medium) {
+    width: 200px;
+  }
+
+  @include viewports(up-to small) {
+    content: url("/assets/img/nauha.png");
+    width: 400px;
+  }
+}
+
+.navigation__links {
+  margin: auto;
+  background-color: black;
+  border-style: solid;
+
+  border-color: white;
+
+  @include viewports(medium) {
+    border-width: 0 2px 2px 2px;
+    width: 165px;
+  }
+
+  @include viewports(large) {
+    border-width: 0 4px 4px 4px;
+    width: 290px;
+  }
+}
+
+.pages {
+  @include viewports(medium) {
+    padding-top: 15px;
+  }
+
+  @include viewports(large) {
+    padding-top: 20px;
+  }
+
+  text-align: center;
+
+  li a {
+    font-family: 'Reem Kufi', sans-serif;
+    font-size: 25px;
+    color: white;
+  }
+}

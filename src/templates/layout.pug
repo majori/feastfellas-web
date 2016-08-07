@@ -1,10 +1,9 @@
 extends ./root.pug
 
 block site
-    div.row
-      div.col-md-4.col-sm-3.col-xs-12(class="menu")
-        include ./includes/navigation.pug
-      div.col-md-8.col-sm-9.col-xs-12(class="content")
+    div(class="container")
+      div(class="navigation__wrapper")
+        include ../includes/navigation.pug
+      div(class="content__wrapper")
         block content
-    div.row
-      include ./includes/footer.pug
+    include ../includes/footer.pug
