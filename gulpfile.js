@@ -1,4 +1,5 @@
 const path = require('path');
+const del  = require('del');
 
 const gulp          = require('gulp');
 const util          = require('gulp-util');
@@ -17,16 +18,21 @@ const PUBLIC_DIR = path.resolve(__dirname, 'public');
 const VIEWPORTS_DIR = path.resolve(__dirname, 'node_modules/viewports');
 const PURECSS_DIR = path.resolve(__dirname, 'node_modules/purecss-sass/vendor/assets/stylesheets')
 
-const production = !!util.env.production; // Turn undefined into a proper false
+const PRODUCTION = !!util.env.production; // Turn undefined into a proper false
 
 const CONFIG = {
+  autoprefixer: {
+      browsers: ['last 2 versions'],
+      cascade: false
+  },
+
   sass: {
     includePaths: [ SOURCE_DIR, VIEWPORTS_DIR, PURECSS_DIR],
-    outputStyle: (production) ? 'compressed' : 'nested'
+    outputStyle: (PRODUCTION) ? 'compressed' : 'nested'
   },
 
   pug: {
-    pretty: !production
+    pretty: !PRODUCTION
   },
 
   webserver: {
@@ -38,6 +44,10 @@ const CONFIG = {
   }
 }
 
+gulp.task('clean', () => {
+  del([`${PUBLIC_DIR}/views/*`, `${PUBLIC_DIR}/styles/*`]);
+});
+
 gulp.task('build_views', () => {
   return gulp.src(`${SOURCE_DIR}/views/*.pug`)
     .pipe(pug(CONFIG.pug))
@@ -47,10 +57,7 @@ gulp.task('build_views', () => {
 gulp.task('build_styles', () => {
   return gulp.src(`${SOURCE_DIR}/styles/*.scss`)
     .pipe(sass(CONFIG.sass).on('error', sass.logError))
-    .pipe(autoprefixer({
-      browsers: ['last 2 versions'],
-      cascade: false
-    }))
+    .pipe(autoprefixer(CONFIG.autoprefixer))
     .pipe(gulp.dest(`${PUBLIC_DIR}/styles`));
 });
 
