@@ -3,3 +3,5 @@
 *.psd
 node_modules/
 sftp-config.json
+public/views
+public/styles
