@@ -1,10 +1,11 @@
-// External libraries
+
 $VIEWPORTS_CONFIG:
     up-to  480px it-is "tiny",
     up-to  700px it-is "small",
     up-to 1180px it-is "medium",
     beyond-that  it-is "large";
 
+// External libraries
 @import 'viewports';
 @import 'purecss';
 
