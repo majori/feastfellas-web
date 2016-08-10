@@ -1,17 +1,19 @@
 {
-  "name": "feastfellas",
+  "name": "feastfellas-website",
   "version": "0.0.1",
-  "description": "Feast Fellas homepage",
+  "description": "Feast Fellas website",
   "scripts": {
     "build": "gulp build --production",
     "build:dev": "gulp dev",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
+    "website",
     "homepage"
   ],
-  "author": "Antti Kivimäki",
-  "license": "ISC",
+  "repository": "https://github.com/majori/feastfellas-website",
+  "author": "Antti Kivimäki <majoriz11@gmail.com>",
+  "license": "MIT",
   "devDependencies": {
     "bootstrap-sass": "^3.3.7",
     "del": "^2.2.1",
