@@ -1,4 +1,5 @@
 #navigation__logo {
+
   display: block;
   margin: auto;
   content: url("/assets/img/menulogo.png");
@@ -10,7 +11,9 @@
 
   @include viewports(up-to small) {
     content: url("/assets/img/nauha.png");
-    width: 400px;
+    width: 100%;
+    max-width: 400px;
+    margin-bottom: 20px;
   }
 }
 
@@ -35,6 +38,7 @@
 .pages {
   @include viewports(medium) {
     padding-top: 15px;
+    font-size: 10px;
   }
 
   @include viewports(large) {
@@ -47,5 +51,9 @@
     font-family: 'Reem Kufi', sans-serif;
     font-size: 25px;
     color: white;
+
+    &:hover {
+      color: black;
+    }
   }
 }

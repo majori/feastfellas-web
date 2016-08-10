@@ -3,7 +3,9 @@ extends ./root.pug
 block site
     div(class="container")
       div(class="navigation__wrapper")
-        include ../includes/navigation.pug
+        div(class="navigation")
+          include ../includes/navigation.pug
       div(class="content__wrapper")
-        block content
-    include ../includes/footer.pug
+        div(class="content")
+          block content
+    //- include ../includes/footer.pug

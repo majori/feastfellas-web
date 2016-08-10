@@ -5,7 +5,6 @@
     <title>Feast Fellas</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Styles-->
-    <link rel="stylesheet" type="text/css" href="/styles/imports.css">
     <link rel="stylesheet" type="text/css" href="/styles/main.css">
     <!-- Fonts-->
     <link href="https://fonts.googleapis.com/css?family=Reem+Kufi" rel="stylesheet">
@@ -13,23 +12,26 @@
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
   </head>
   <body>
-    <div class="container site__wrapper">
-      <div class="row">
-        <div class="col-md-4 col-sm-3 col-xs-12 menu"><img src="/assets/img/menulogo.png">
-          <ul>
-            <li><a href="esittely.html">Esittely</a></li>
-            <li><a href="menu.html">Ruoka</a></li>
-            <li><a href="contact.html">Yhteystiedot</a></li>
-          </ul>
+    <div class="site__wrapper">
+      <div class="container">
+        <div class="navigation__wrapper"><img id="navigation__logo">
+          <div class="pure-menu navigation__links">
+            <ul class="pure-menu-list pages">
+              <li class="pure-menu-item"><a class="pure-menu-link" href="introduction.html">Esittely</a></li>
+              <li class="pure-menu-item"><a class="pure-menu-link" href="menu.html">Ruoka</a></li>
+              <li class="pure-menu-item"><a class="pure-menu-link" href="contact.html">Yhteystiedot</a></li>
+            </ul>
+            <div class="links"></div>
+          </div>
         </div>
-        <div class="col-md-8 col-sm-9 col-xs-12 content">
-          <p>content</p>
+        <div class="content__wrapper">
+          <div class="content">
+            <p>content</p>
+          </div>
         </div>
       </div>
-      <div class="row">
-        <div class="col-xs-12 footer">
-          <p>I'm footer!</p>
-        </div>
+      <div class="footer">
+        <p>I'm footer!</p>
       </div>
     </div>
   </body>

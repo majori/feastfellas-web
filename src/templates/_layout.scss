@@ -8,11 +8,6 @@
 }
 
 .navigation__wrapper {
-  padding-top: 40px;
-
-  @include viewports(up-to small) {
-    padding-top: 10px;
-  }
 
   width: 30%;
   // background-color: red;
@@ -22,11 +17,24 @@
   }
 }
 
+.navigation {
+  margin-top: 40px;
+}
+
 .content__wrapper {
   flex-grow: 1;
   height: 800px;
 
-  padding: 20px;
+}
 
-  // background-color: blue;
+.content {
+  margin: 40px;
+  background-color: rgba(0,0,0,0.8);
+  border-style: solid;
+  border-width: 3px;
+  border-color: white;
+
+  p {
+    color: white;
+  }
 }
