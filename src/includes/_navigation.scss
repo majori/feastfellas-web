@@ -10,32 +10,33 @@
 
   @include viewports(up-to small) {
     content: url("/assets/img/logo_ribbon.png");
+    width: 100%;
+    max-width: 400px;
     margin-bottom: 20px;
   }
 }
 
 .navigation__links {
   margin: auto;
-  background-color: black;
-  border-style: solid;
-
-  border-color: white;
 
   @include viewports(medium) {
     border-width: 0 2px 2px 2px;
-    width: 165px;
+    width: 162px;
   }
 
   @include viewports(large) {
     border-width: 0 4px 4px 4px;
-    width: 290px;
+    width: 282px;
+  }
+
+  hr {
+    width: 80%;
   }
 }
 
 .pages {
   @include viewports(medium) {
     padding-top: 15px;
-    font-size: 10px;
   }
 
   @include viewports(large) {
@@ -46,11 +47,54 @@
 
   li a {
     font-family: 'Reem Kufi', sans-serif;
-    font-size: 25px;
-    color: white;
+    font-size: 20px;
+
+    @include viewports(above medium) {
+      font-size: 25px;
+    }
 
     &:hover {
       color: black;
     }
   }
+}
+
+.medias {
+  margin-top: 10px;
+  text-align: center;
+
+  @include viewports(up-to small) {
+    display: none;
+  }
+
+  hr {
+    margin: 0 auto 0 auto;
+  }
+
+  .pure-menu-list {
+    margin: 10px auto;
+  }
+
+  @mixin media_link($media) {
+    img {
+      content: url("/assets/img/"+$media+"_logo.png");
+    }
+
+    &:hover {
+      img {
+        content: url("/assets/img/"+$media+"_logo_black.png");
+      }
+    }
+  }
+
+  #facebook__link {
+    @include media_link("fb");
+  }
+
+  #instagram__link {
+    @include media_link("instagram");
+  }
+
+
+
 }

@@ -1,12 +1,13 @@
-img(id="navigation__logo")
-div.pure-menu(class="navigation__links")
-  ul.pure-menu-list(class="pages")
-    li.pure-menu-item: a.pure-menu-link(href="index.html") Esittely
-    li.pure-menu-item: a.pure-menu-link(href="menu.html") Ruoka
-    li.pure-menu-item: a.pure-menu-link(href="contact.html") Yhteystiedot
-  div.pure-menu.pure-menu-horizontal
-    ul.pure-menu-list(class="links")
-      li.pure-menu-item: a #
-      li.pure-menu-item: a #
-      li.pure-menu-item: a #
-
+div(class="navigation")
+  img(id="navigation__logo")
+  div(class="navigation__links content__background")
+    div.pure-menu
+      ul.pure-menu-list(class="pages")
+        li.pure-menu-item: a.pure-menu-link(href="index.html") Esittely
+        li.pure-menu-item: a.pure-menu-link(href="menu.html") Ruoka
+        li.pure-menu-item: a.pure-menu-link(href="contact.html") Yhteystiedot
+    div.pure-menu.pure-menu-horizontal(class="medias")
+      hr
+      ul.pure-menu-list
+        li.pure-menu-item: a.pure-menu-link(id="facebook__link" href="https://www.facebook.com/feastfellas/"): img
+        li.pure-menu-item: a.pure-menu-link(id="instagram__link" href="https://www.instagram.com/feastfellas/"): img

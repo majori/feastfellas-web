@@ -1,6 +1,10 @@
 .footer {
+  @include viewports(above small) {
+    display: none;
+  }
+
   display: flex;
   flex-direction: row;
 
-  background-color: black;
+  margin-top: 20px;
 }
