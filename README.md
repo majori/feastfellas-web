@@ -1,6 +1,6 @@
 feastfellas-website
 ==============
-Website for [Feast Fellas](https://www.facebook.com/feastfellas/)
+Website for [Feast Fellas](https://www.facebook.com/feastfellas/) powered by [Pug](https://github.com/pugjs/pug) and [Sass](http://sass-lang.com/).
 
 **How-to build**
 
