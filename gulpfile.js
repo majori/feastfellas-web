@@ -34,7 +34,10 @@ const CONFIG = {
     pretty: !PRODUCTION
   },
 
-  webFonts: {},
+  webFonts: {
+    fontsDir: '../assets/fonts/',
+    cssFilename: 'webfonts.css'
+  },
 
   webserver: {
     host: 'localhost',
@@ -69,7 +72,7 @@ gulp.task('build_styles', () => {
 gulp.task('build_fonts', () => {
   return gulp.src(`${SOURCE_DIR}/fonts/fonts.list`)
     .pipe(webFonts(CONFIG.webFonts))
-    .pipe(gulp.dest(`${PUBLIC_DIR}/assets/fonts`));
+    .pipe(gulp.dest(`${PUBLIC_DIR}/styles`));
 })
 
 gulp.task('watch', () => {
