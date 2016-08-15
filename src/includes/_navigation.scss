@@ -1,15 +1,17 @@
+$logo_dir: "/assets/img/logos/";
+
 #navigation__logo {
 
   display: block;
   margin: auto;
-  content: url("/assets/img/menulogo_350px.png");
+  content: url($logo_dir + "menulogo_350px.png");
 
   @include viewports(medium) {
-    content: url("/assets/img/menulogo_200px.png");
+    content: url($logo_dir + "menulogo_200px.png");
   }
 
   @include viewports(up-to small) {
-    content: url("/assets/img/logo_ribbon.png");
+    content: url($logo_dir + "logo_ribbon.png");
     width: 100%;
     max-width: 400px;
     margin-bottom: 20px;
@@ -79,12 +81,12 @@
 
   @mixin media_link($media) {
     img {
-      content: url("/assets/img/"+$media+"_logo.png");
+      content: url($logo_dir + $media +"_logo.png");
     }
 
     &:hover {
       img {
-        content: url("/assets/img/"+$media+"_logo_black.png");
+        content: url($logo_dir + $media + "_logo_black.png");
       }
     }
 
