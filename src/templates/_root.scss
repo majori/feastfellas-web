@@ -1,11 +1,10 @@
 html {
   height: 100%;
   width: 100%;
-
-
 }
 
 body {
+  background-color: #b3daff; // fallback
   background-image: url("/assets/img/background.jpg");
   background-repeat: no-repeat;
   background-size: cover;
