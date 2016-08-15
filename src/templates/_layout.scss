@@ -10,7 +10,6 @@
 .navigation__wrapper {
 
   width: 30%;
-  // background-color: red;
 
   @include viewports(up-to small) {
     width: 100%;
@@ -27,6 +26,7 @@
 
 .content {
   margin: 40px;
+  font-family: 'Montserrat', sans-serif;
 
   @include viewports(up-to small) {
     margin: 20px 0 0 0;
@@ -39,6 +39,7 @@
   border-style: solid;
   border-width: 3px;
   border-color: white;
+  border-radius: 6px;
 
   p {
     color: white;
@@ -50,5 +51,6 @@
 
   @include viewports(up-to small) {
     border-width: 3px 0;
+    border-radius: 0;
   }
 }

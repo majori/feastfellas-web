@@ -1,5 +1,6 @@
-const path = require('path');
-const del  = require('del');
+const path    = require('path');
+const del     = require('del');
+const runSeq  = require('run-sequence');
 
 const gulp          = require('gulp');
 const util          = require('gulp-util');
@@ -7,9 +8,7 @@ const webserver     = require('gulp-webserver');
 const pug           = require('gulp-pug');
 const sass          = require('gulp-sass');
 const autoprefixer  = require('gulp-autoprefixer');
-
-const SERVER_ADDRESS = 'localhost';
-const SERVER_PORT = 8080;
+const webFonts      = require('gulp-google-webfonts');
 
 const SOURCE_DIR = path.resolve(__dirname, 'src');
 const PUBLIC_DIR = path.resolve(__dirname, 'public');
@@ -35,17 +34,23 @@ const CONFIG = {
     pretty: !PRODUCTION
   },
 
+  webFonts: {},
+
   webserver: {
-    host: SERVER_ADDRESS,
-    port: SERVER_PORT,
+    host: 'localhost',
+    port: 8080,
     livereload: true,
     directoryListing: true,
-    open: `http://${SERVER_ADDRESS}:${SERVER_PORT}/views/index.html`
+    open: `http://localhost:8080/views/index.html`
   }
 }
 
 gulp.task('clean', () => {
-  del([`${PUBLIC_DIR}/views/*`, `${PUBLIC_DIR}/styles/*`]);
+  return del([
+    `${PUBLIC_DIR}/views/*`,
+    `${PUBLIC_DIR}/styles/*`,
+    `${PUBLIC_DIR}/assets/fonts/*`
+  ]);
 });
 
 gulp.task('build_views', () => {
@@ -61,9 +66,16 @@ gulp.task('build_styles', () => {
     .pipe(gulp.dest(`${PUBLIC_DIR}/styles`));
 });
 
+gulp.task('build_fonts', () => {
+  return gulp.src(`${SOURCE_DIR}/fonts/fonts.list`)
+    .pipe(webFonts(CONFIG.webFonts))
+    .pipe(gulp.dest(`${PUBLIC_DIR}/assets/fonts`));
+})
+
 gulp.task('watch', () => {
   gulp.watch(`${SOURCE_DIR}/**/*.pug`, ['build_views']);
   gulp.watch(`${SOURCE_DIR}/**/*.scss`, ['build_styles']);
+  gulp.watch(`${SOURCE_DIR}/fonts/*`, ['build_fonts']);
 });
 
 gulp.task('webserver', () => {
@@ -71,7 +83,12 @@ gulp.task('webserver', () => {
     .pipe(webserver(CONFIG.webserver));
 })
 
-gulp.task('build', ['build_views', 'build_styles']);
+gulp.task('build', () => {
+  runSeq('clean',
+    ['build_views', 'build_styles', 'build_fonts']
+  );
+});
+
 gulp.task('dev', ['webserver', 'build', 'watch']);
 
 gulp.task('default', ['build']);
