@@ -1,0 +1,5 @@
+mixin page(name, url)
+  li.pure-menu-item: a.pure-menu-link(href=url)= name
+
+mixin media(name)
+  li.pure-menu-item: a.pure-menu-link(id= name +"__link" href="https://www." + name + ".com/feastfellas/"): img
